@@ -60,7 +60,7 @@ class NotifyJob(object):
         self.param = param
         
         
-    def run(self, ):
+    def run(self):
         
         httpClient = None
      
@@ -90,7 +90,7 @@ class CheckStatus(object):
     '''
 
 
-    def __init__(self, host, port, file_id, shell, param):
+    def __init__(self, host, port, file_id):
         '''
         Constructor
         '''
@@ -98,8 +98,7 @@ class CheckStatus(object):
         self.host = host
         self.port = port
         self.file_id =file_id
-        self.shell = shell
-        self.param = param
+
         
                 
     def run(self):
@@ -108,7 +107,7 @@ class CheckStatus(object):
      
         try:
             httpClient = httplib.HTTPConnection(self.host, self.port, timeout=5)
-            httpClient.request('GET', '/checkstatus&id=' + str(self.file_id) + '&filename=' + str(self.filename) )
+            httpClient.request('GET', '/checkstatus&id=' + str(self.file_id) )
          
             response = httpClient.getresponse()
     

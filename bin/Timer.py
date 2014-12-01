@@ -12,7 +12,7 @@ class Timer(threading.Thread):
     classdocs
     '''
 
-    def __init__(self, num, interval, doAction, args = []):
+    def __init__(self, num, interval, doAction, args = None):
         '''
         Constructor
         '''
@@ -26,8 +26,10 @@ class Timer(threading.Thread):
     def run(self):
         
         while not self.is_stop:
-            
-            self.doActin(self.args)
+            if self.args:
+                self.doActin(self.args)
+            else:
+                self.doActin()    
             time.sleep(self.interval)
             
 

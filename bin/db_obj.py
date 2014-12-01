@@ -66,13 +66,13 @@ class DbObj(object):
     def getRsyncStatus(self):
 
         cursor = self.conn.cursor()  
-        sql = 'select * from dir_task where notify > -1 and status = -1'
+        sql = 'select file_id,client_ip,client_port from dir_task where notify > -1 and status = -1'
         cursor.execute(sql)
-        dirInfo = []
+        fileInfo = []
         for row in cursor.fetchall(): 
-            dirInfo.append(row )
+            fileInfo.append(row )
         cursor.close()
-        return dirInfo
+        return fileInfo
     
     def upateStatus(self, file_id, status):
 

@@ -29,8 +29,8 @@ def getConf():
         conf_data['db_passwd'] = db_passwd
         conf_data['db_database'] = db_database
         
-        return conf_data
+    return conf_data
 
 
 if __name__ == '__main__':
-    pass
+    getConf()

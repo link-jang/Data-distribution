@@ -34,8 +34,9 @@ create table dir_metadata
 	
 );
 
-insert into dir_metadata (file_id, filereg, server_shell, server_param, cacul_period, client_ip, client_port, client_shell,client_param)
-values('/home/conny/.xinputrc${day}','day','10.0.0.1','8088','/home/conny/a.sh','${day}');
+insert into dir_metadata (filereg, server_shell, server_param, cacul_period, client_ip, client_port, client_shell,client_param)
+values('/home/conny/.xinputrc${day}','/home/conny/aa.sh','${day}','day','10.0.0.1','8088','/home/conny/a.sh','${day}');
+
 insert into dir_task(filename, client_ip, client_port, client_shell, client_param, day, hour) 
 select filereg, client_ip, client_port, client_shell, client_param from dir_metadata where cacul_period ="hour"
 values('/home/conny/.xinputrc20141128', '20.10.2.1', 8088, 'sbc.sh', 'abc', '20141128', 12   )
